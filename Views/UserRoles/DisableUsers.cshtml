@@ -1,0 +1,16 @@
+﻿@model a2.Models.ThirdPartyReport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Disable or Enable</h2>
+
+<div>
+    <p> This user is @ViewBag.Status </p>
+    <p> Are you sure to @ViewBag.NextStatus this user</p>
+</div>
+<p>
+    @Html.ActionLink("Yes", "Disable", new { name = ViewBag.UserName }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

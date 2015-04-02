@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Change Role";
+}
+<div class="jumbotron">
+    <h2>Choose a Role to Set</h2>
+    <p> This user has ViewBag.Role</p>
+    @using (Html.BeginForm("ChangeRole","UserRoles"))
+    {
+        <fieldset>
+            @{string userid = ViewBag.UserId; }
+            @Html.Hidden("userid", userid)
+            Roles
+            @Html.DropDownList("Roles", ViewBag.UserRoles as SelectList)
+            <br />
+            <input type="submit" value="Change Role" />
+        </fieldset>
+    }
+</div>

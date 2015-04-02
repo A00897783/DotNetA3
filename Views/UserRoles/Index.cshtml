@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Manage Users";
+}
+
+<h2>Admin</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            User Name
+        </th>
+        @*<th>User Role</th>*@
+        <th></th>
+    </tr>
+
+    @{var i = 0;}
+@foreach (var item in ViewBag.Users)
+{
+    <tr>
+        <td>
+            @item
+        </td>
+        @*<td>
+            @ViewBag.Roles[i];
+        </td>*@
+        <td>
+            @*@{bool enable = @ViewBag.Enable[i];}
+            @Html.ActionLink("Change Role", "EditUserRoles", new { name = item }) |
+            @enable.ToString()
+            @if (enable) {*@ 
+                @Html.ActionLink("Disable", "DisableUsers", new { name = item }) 
+            @*}
+            @{i++;}*@
+        </td>
+    </tr>
+}
+
+</table>
